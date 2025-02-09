@@ -1,62 +1,98 @@
-/* Style général */
+/* === Importation d'une police douce et lisible === */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap');
+
+/* === Style général === */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
+    font-family: 'Poppins', sans-serif;
+    background: #f5e6d9; /* Beige doux */
+    color: #5c4033; /* Marron doux */
     margin: 0;
-    padding: 20px;
+    padding: 0;
     text-align: center;
 }
 
-/* En-tête */
+/* === En-tête === */
 h1 {
-    background: #2c3e50;
+    font-size: 2.8rem;
+    background: #d2b48c; /* Marron clair (sable) */
     color: white;
-    padding: 20px;
-    border-radius: 10px;
+    padding: 15px;
+    border-radius: 15px;
+    display: inline-block;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
 }
 
-/* Navigation */
+/* === Adresse === */
+address {
+    font-style: normal;
+    font-size: 1.2rem;
+    background: rgba(255, 248, 220, 0.8); /* Beige clair */
+    padding: 10px;
+    border-radius: 15px;
+    display: inline-block;
+    margin: 15px auto;
+}
+
+/* === Liens === */
+a {
+    color: #8b5e3b; /* Brun caramel */
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+}
+
+a:hover {
+    color: #a67b5b; /* Brun clair plus doux */
+}
+
+/* === Navigation === */
 ul {
     list-style-type: none;
     padding: 0;
 }
 
 ul li {
-    display: inline;
-    margin: 0 15px;
+    display: inline-block;
+    margin: 10px;
+    padding: 12px 20px;
+    background: #d2b48c;
+    color: white;
+    border-radius: 20px;
+    transition: transform 0.3s ease-in-out, background 0.3s;
 }
 
-ul li a {
-    text-decoration: none;
-    color: #3498db;
-    font-weight: bold;
+ul li:hover {
+    transform: scale(1.1);
+    background: #a67b5b;
 }
 
-ul li a:hover {
-    text-decoration: underline;
-}
-
-/* Sections */
+/* === Sections === */
 section {
     background: white;
     padding: 20px;
     margin: 20px auto;
     width: 80%;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
     text-align: left;
+    transition: transform 0.3s ease-in-out;
 }
 
-/* Table des compétences */
+section:hover {
+    transform: scale(1.02);
+}
+
+/* === Table des compétences === */
 table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 10px;
+    background: rgba(210, 180, 140, 0.3); /* Marron clair */
+    border-radius: 10px;
 }
 
 table, th, td {
-    border: 1px solid #ddd;
+    border: 2px solid #8b5e3b; /* Brun caramel */
 }
 
 th, td {
@@ -65,46 +101,33 @@ th, td {
 }
 
 th {
-    background-color: #16a085;
+    background-color: #8b5e3b;
     color: white;
 }
 
-/* Formulaire */
-form {
-    background: white;
-    padding: 20px;
-    margin: 20px auto;
-    width: 50%;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-input, textarea {
+/* === Progress Bars marron clair === */
+progress {
     width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+    height: 20px;
+    border-radius: 10px;
 }
 
-button {
-    background: #3498db;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+progress::-webkit-progress-bar {
+    background: rgba(210, 180, 140, 0.5);
+    border-radius: 10px;
 }
 
-button:hover {
-    background: #2980b9;
+progress::-webkit-progress-value {
+    background: linear-gradient(90deg, #8b5e3b 0%, #d2b48c 50%, #f5e6d9 100%);
+    border-radius: 10px;
 }
 
-/* Pied de page */
+/* === Pied de page === */
 footer {
-    background: #2c3e50;
+    background: #d2b48c;
     color: white;
     padding: 10px;
-    border-radius: 5px;
+    border-radius: 20px;
     margin-top: 20px;
 }
+

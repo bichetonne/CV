@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css">
-    <link rel="stylesheet" href="./sendmail.php">
     <title>cv</title>
 </head>
 <body>
@@ -23,7 +22,7 @@
     <hr>
     <section id="aporposdemoi">
         <H3 >Pourquoi me choisir comme parrain?</H3>
-        <p>En tant que parrain, je suis ravi d’accompagner et de guider ceux qui souhaitent évoluer et réussir dans leur parcours. Mon objectif est de partager mon expérience, d’apporter des conseils précieux et d’être un soutien à chaque étape du chemin. Que ce soit pour répondre aux questions, aider à surmonter les défis ou simplement encourager, je serai présent pour offrir une écoute bienveillante et un accompagnement motivant. Ensemble, avançons vers la réussite avec confiance et détermination ! 💪✨</p>
+        <p>Choisir un parrain, c’est avant tout choisir une personne de confiance, quelqu’un sur qui l’on peut compter en toutes circonstances. En tant que parrain, je serai là pour t’accompagner, t’encourager et te soutenir à chaque étape de ton parcours. Que ce soit pour répondre à tes questions, t’aider à surmonter les petits défis du quotidien ou simplement partager des moments de complicité, je serai toujours prêt à t’écouter et à te guider. Avec moi, l’apprentissage se fait dans la bonne humeur, avec une touche d’humour et beaucoup de bienveillance. Mon but est de voir ma filleule grandir, s’épanouir et réussir, tout en partageant de belles expériences ensemble. Alors, prêt(e) à embarquer dans cette aventure avec moi ?</p>
     </section>
     <hr>
     <section id="Etude">
@@ -75,49 +74,8 @@
         </table>  
     </section>
     <hr>
-    <form id="contact-form" method="POST" action="sendmail.php">
-        <div class="form-row form-error" style="display:none;"></div>
-        <div class="form-row">
-          <label for="contact-form-name">Name:</label>
-          <input id="contact-form-name" class="form-input" type="text" name="name" required>
-        </div>
-        <div class="form-row">
-          <label for="contact-form-email">Email:</label>
-          <input id="contact-form-email" class="form-input" type="email" name="email" required>
-        </div>
-        <div class="form-row">
-          <label for="contact-form-phone">Phone:</label>
-          <input id="contact-form-phone" class="form-input" type="tel" name="phone">
-        </div>
-        <div class="form-row">
-          <label for="contact-form-message">Message:</label>
-          <textarea id="contact-form-message" class="form-input" name="message" required></textarea>
-        </div>
-        <button type="submit">Submit</button>
-      </form>
-
-      <?php
-      if ($_SERVER["REQUEST_METHOD"] == "POST") {
-          $name = htmlspecialchars($_POST["name"]);
-          $email = htmlspecialchars($_POST["email"]);
-          $phone = htmlspecialchars($_POST["phone"]);
-          $message = htmlspecialchars($_POST["message"]);
-      
-          $to = "laurent.teo370@gmail.com"; // Remplace par ton adresse email
-          $subject = "Nouveau message de contact";
-          $body = "Nom: $name\nEmail: $email\nTéléphone: $phone\n\nMessage:\n$message";
-      
-          $headers = "From: $email\r\nReply-To: $email";
-      
-          if (mail($to, $subject, $body, $headers)) {
-              echo "Message envoyé avec succès !";
-          } else {
-              echo "Erreur lors de l'envoi du message.";
-          }
-      } else {
-          echo "Méthode non autorisée.";
-      }
-      ?>
+    
+    
     <script src="./script.js"></script>
 </body>
 <footer>

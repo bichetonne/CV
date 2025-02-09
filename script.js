@@ -1,23 +1,36 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const form = document.getElementById("contact-form");
+    // Animation d'apparition progressive des sections
+    const sections = document.querySelectorAll("section");
 
-    form.addEventListener("submit", function (event) {
-        event.preventDefault(); // Empêche le rechargement de la page
+    function fadeInSections() {
+        sections.forEach(section => {
+            if (section.getBoundingClientRect().top < window.innerHeight - 100) {
+                section.style.opacity = 1;
+                section.style.transform = "translateY(0)";
+            }
+        });
+    }
 
-        const formData = new FormData(form);
+    sections.forEach(section => {
+        section.style.opacity = 0;
+        section.style.transform = "translateY(50px)";
+        section.style.transition = "opacity 0.8s ease-out, transform 0.8s ease-out";
+    });
 
-        fetch("sendmail.php", {
-            method: "POST",
-            body: formData
-        })
-        .then(response => response.text())
-        .then(data => {
-            alert(data); // Affiche le message de retour du serveur
-            form.reset(); // Réinitialise le formulaire après l'envoi
-        })
-        .catch(error => {
-            console.error("Erreur:", error);
-            alert("Une erreur est survenue. Veuillez réessayer.");
+    window.addEventListener("scroll", fadeInSections);
+    fadeInSections(); // Lancer à l'ouverture de la page
+
+    // Effet hover sur les compétences
+    const progressBars = document.querySelectorAll("progress");
+
+    progressBars.forEach(bar => {
+        bar.addEventListener("mouseover", function () {
+            this.style.transition = "transform 0.3s ease-in-out";
+            this.style.transform = "scale(1.1)";
+        });
+
+        bar.addEventListener("mouseout", function () {
+            this.style.transform = "scale(1)";
         });
     });
 });
