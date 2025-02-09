@@ -130,4 +130,23 @@ footer {
     border-radius: 20px;
     margin-top: 20px;
 }
+@media screen and (max-width: 600px) {
+    h1 {
+        font-size: 1.8em;
+    }
 
+    section {
+        width: 95%;
+        padding: 10px;
+    }
+
+    ul li {
+        display: block;
+        margin: 5px 0;
+    }
+
+    th, td {
+        font-size: 0.8em;
+        padding: 6px;
+    }
+}
