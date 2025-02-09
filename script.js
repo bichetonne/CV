@@ -1,30 +1,23 @@
-document.addEventListener("DOMContentLoaded", function() {
-    emailjs.init("NUEjDR_o419Iy1Phd"); // Remplace par ta clé EmailJS
+document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("contact-form");
 
-    document.getElementById("contact-form").addEventListener("submit", function(event) {
-        event.preventDefault(); // Empêche la soumission classique du formulaire
+    form.addEventListener("submit", function (event) {
+        event.preventDefault(); // Empêche le rechargement de la page
 
-        // Récupération des valeurs du formulaire
-        let nom = document.getElementById("nom").value;
-        let prenom = document.getElementById("prenom").value;
-        let sujet = document.getElementById("sujet").value;
-        let email = document.getElementById("email").value;
-        let message = document.getElementById("message").value;
+        const formData = new FormData(form);
 
-        let params = {
-            nom: nom,
-            prenom: prenom,
-            sujet: sujet,
-            email: email,
-            message: message
-        };
-
-        emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", params)
-            .then(function(response) {
-                alert("Message envoyé avec succès !");
-                document.getElementById("contact-form").reset(); // Réinitialiser le formulaire
-            }, function(error) {
-                alert("Erreur lors de l'envoi du message. Réessayez !");
-            });
+        fetch("sendmail.php", {
+            method: "POST",
+            body: formData
+        })
+        .then(response => response.text())
+        .then(data => {
+            alert(data); // Affiche le message de retour du serveur
+            form.reset(); // Réinitialise le formulaire après l'envoi
+        })
+        .catch(error => {
+            console.error("Erreur:", error);
+            alert("Une erreur est survenue. Veuillez réessayer.");
+        });
     });
 });
